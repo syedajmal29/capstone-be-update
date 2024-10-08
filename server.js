@@ -7,7 +7,9 @@ const applicationRoute = require('./routes/applicationRoute');
 const placementDriveRoutes = require('./routes/placementDriveRoutes'); // Import placement drive routes
 const recruitmentStatusRoutes = require('./routes/recruitmentStatusRoutes'); // Import recruitment status routes
 // const studentRoutes = require('./routes/studentRoutes'); // Import student routes
-const studentcontrol = require("./controllers/studentController")
+const studentcontrol = require("./controllers/studentController");
+const adminstudentapplication = require("./routes/admin");
+
 require('dotenv').config(); 
 
 const app = express();
@@ -38,6 +40,8 @@ app.use('/', jobRoutes); // Updated to '/api/jobs' for clarity
 app.use('/', applicationRoute); // Updated to '/api/applications' for clarity
 app.use('/api/placement-drives', placementDriveRoutes); // Added placement drive routes
 app.use('/api/recruitment-status', recruitmentStatusRoutes); // Added recruitment status routes
+app.use("/",adminstudentapplication)
+
 // app.use('/api/students', studentRoutes); // Add student routes
 app.use("/",studentcontrol)
 // Start the server
